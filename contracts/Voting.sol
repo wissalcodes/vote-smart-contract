@@ -56,7 +56,7 @@ modifier onlyOwner {
     }
 
     function getRemainingTime() public view returns (uint256) {
-        require(block.timestamp < votingStart, "Voting hasn't started yet");
+        require(block.timestamp >= votingStart, "Voting hasn't started yet");
         if(block.timestamp >= votingEnd) {
             return 0;
         }
